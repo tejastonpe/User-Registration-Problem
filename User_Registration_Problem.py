@@ -31,11 +31,23 @@ def validate_last_name(last_name):
 def validate_email(email_address):
     '''
     Description : Validate the input string as a email.
-    Parameter   : inp_email - input to be validated.
+    Parameter   : email_address- input to be validated.
     Returns     : bool- True if the input string is a valid email address else False.
     '''
     pattern = r'^\w+\.+\w+@\w+\.+\w+$'
     if re.match(pattern,email_address):
+        return True
+    else:
+        return False
+
+def validate_mobile_no(mobile_no):
+    '''
+    Description : Validate the input as a mobile number.
+    Parameter   : mobile_no - input to be validated.
+    Returns     : bool- True if the input string is a valid mobile number  else False.
+    '''
+    pattern = r'^91 [6-9]\d{9}$'
+    if re.match(pattern,mobile_no):
         return True
     else:
         return False
@@ -49,9 +61,11 @@ def main():
         first_name=input("Enter your first name: ")
         last_name=input("Enter your last name: ")
         email_address=input("Enter your email: ")
+        mobile_no=input("Enter mobile number starting with country code: ")
         print(validate_first_name(first_name))
         print(validate_last_name(last_name))
         print(validate_email(email_address))
+        print(validate_mobile_no(mobile_no))
     except Exception as e:
         logger.error("Error occourd: %s",e)
 
