@@ -58,7 +58,7 @@ def validate_password(password):
     Parameter   : password - input to be validated.
     Returns     : bool- True if the input string is a valid password else False.
     '''
-    pattern = r'^\w{8,}$'
+    pattern = r'^(?=.*[A-Z]).{8,}$'
     if re.match(pattern,password):
         return True
     else:
@@ -74,7 +74,7 @@ def main():
         last_name=input("Enter your last name: ")
         email_address=input("Enter your email: ")
         mobile_no=input("Enter mobile number starting with country code: ")
-        password=input("Enter password with minimum 8 characters: ")
+        password=input("Enter password with minimum 8 characters & atleast 1 uppercase character: ")
 
         print(validate_first_name(first_name))
         print(validate_last_name(last_name))
