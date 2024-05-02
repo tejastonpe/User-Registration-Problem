@@ -58,7 +58,7 @@ def validate_password(password):
     Parameter   : password - input to be validated.
     Returns     : bool- True if the input string is a valid password else False.
     '''
-    pattern = r'^(?=.*[A-Z])(?=.*\d).{8,}$'
+    pattern = r"^(?=.*[A-Z])(?=.*\d).{8,}$"
     if re.match(pattern,password):
         return True
     else:
