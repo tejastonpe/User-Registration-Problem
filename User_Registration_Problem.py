@@ -51,6 +51,18 @@ def validate_mobile_no(mobile_no):
         return True
     else:
         return False
+    
+def validate_password(password):
+    '''
+    Description : Validate the input as a correct password.
+    Parameter   : password - input to be validated.
+    Returns     : bool- True if the input string is a valid password else False.
+    '''
+    pattern = r'^\w{8,}$'
+    if re.match(pattern,password):
+        return True
+    else:
+        return False
 
 def main():
     """
@@ -62,10 +74,13 @@ def main():
         last_name=input("Enter your last name: ")
         email_address=input("Enter your email: ")
         mobile_no=input("Enter mobile number starting with country code: ")
+        password=input("Enter password with minimum 8 characters: ")
+
         print(validate_first_name(first_name))
         print(validate_last_name(last_name))
         print(validate_email(email_address))
         print(validate_mobile_no(mobile_no))
+        print(validate_password(password))
     except Exception as e:
         logger.error("Error occourd: %s",e)
 
